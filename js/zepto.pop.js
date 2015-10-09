@@ -17,28 +17,28 @@
 		cfmCall:function(){},
 		cancelCall:function(){}//确定或者取消后的回调函数
 	}
-
+	
 	$.fn.pop=function(opt){
-
+		$.fn.pop.opt=$.extend(defaults,opt);
 		var wrap=$(this);
-		opt=$.extend(defaults,opt);
+		var options=$.fn.pop.opt;
 
 		var overlay=wrap.find("#popOverLay");
 
-			if(opt.cfmOnly){
+			if(options.cfmOnly){
 				var layer=$('<div id="popOverLay">'
 										+'<div id="popBox">'
-										+'<div id="popTxt">'+opt.msg+'</div>'
-										+'<div id="cfmBtn" class="pop-btn">'+opt.cfmText+'</div>'
+										+'<div id="popTxt">'+options.msg+'</div>'
+										+'<div id="cfmBtn" class="pop-btn">'+options.cfmText+'</div>'
 										+'</div>'
 										+'</div>');
 			}
 			else{
 				var layer=$('<div id="popOverLay">'
 										+'<div id="popBox">'
-										+'<div id="popTxt">'+opt.msg+'</div>'
-										+'<div id="cancelBtn" class="pop-btn half br">'+opt.cancelText+'</div>'
-										+'<div id="cfmBtn" class="pop-btn half">'+opt.cfmText+'</div>'
+										+'<div id="popTxt">'+options.msg+'</div>'
+										+'<div id="cancelBtn" class="pop-btn half br">'+options.cancelText+'</div>'
+										+'<div id="cfmBtn" class="pop-btn half">'+options.cfmText+'</div>'
 										+'</div>'
 										+'</div>');
 			}
@@ -52,38 +52,42 @@
 			"height":"100%"
 		});
 		$("#popBox").css({
-			"width":opt.width
+			"width":options.width
 		}).css({
 			"top":($(window).height()-$("#popBox").height())/2,
 			"left":($(window).width()-$("#popBox").width())/2
 		});
 
 		//animate
-		if(opt.effect){
-			$("#popBox").addClass('animated').addClass(opt.effect);
+		if(options.effect){
+			$("#popBox").addClass('animated').addClass(options.effect);
 		}
 		overlay.hide().fadeIn(function(){
 			//triggerEvent
-			$("#cfmBtn").on(clickEvent,function(){
+			overlay.on(clickEvent,function(){
+				wrap.fadeOut();
+				setTimeout(function(){
+						$.fn.pop.opt={};
+				},200);
+			});
+			$("#cfmBtn").on(clickEvent,function(e){
+				e.stopPropagation();
 				wrap.fadeOut(function(){
-					opt.cfmCall && opt.cfmCall.call(wrap);
+					options.cfmCall && options.cfmCall.call(wrap);
 					overlay.hide();
-
 					setTimeout(function(){
-						opt={};
-					},20);
-
+							$.fn.pop.opt={};
+					},200);
 				});
 			});
-			$("#cancelBtn").on(clickEvent,function(){
+			$("#cancelBtn").on(clickEvent,function(e){
+				e.stopPropagation();
 				wrap.fadeOut(function(){
-					opt.cancelCall && opt.cancelCall.call(wrap);
+					options.cancelCall && options.cancelCall.call(wrap);
 					overlay.hide();
-
 					setTimeout(function(){
-						opt={};
-					},20);
-
+							$.fn.pop.opt={};
+					},200);
 				});
 			});
 
