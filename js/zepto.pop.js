@@ -13,6 +13,7 @@
 		msg:'',
 		cfmText:"确定",
 		cancelText:"取消",
+		tapDispear:true,
 		effect:'', //可选参数,表示弹出层的弹出方式,这一块的如果有，那么要引入animate.css
 		cfmCall:function(){},
 		cancelCall:function(){}//确定或者取消后的回调函数
@@ -26,20 +27,18 @@
 		var overlay=wrap.find("#popOverLay");
 
 			if(options.cfmOnly){
-				var layer=$('<div id="popOverLay">'
+				var layer=$('<div id="popOverLay"></div>'
 										+'<div id="popBox">'
 										+'<div id="popTxt">'+options.msg+'</div>'
 										+'<div id="cfmBtn" class="pop-btn">'+options.cfmText+'</div>'
-										+'</div>'
 										+'</div>');
 			}
 			else{
-				var layer=$('<div id="popOverLay">'
+				var layer=$('<div id="popOverLay"></div>'
 										+'<div id="popBox">'
 										+'<div id="popTxt">'+options.msg+'</div>'
 										+'<div id="cancelBtn" class="pop-btn half br">'+options.cancelText+'</div>'
 										+'<div id="cfmBtn" class="pop-btn half">'+options.cfmText+'</div>'
-										+'</div>'
 										+'</div>');
 			}
 
@@ -49,7 +48,7 @@
 		//create
 		overlay.css({
 			"width":"100%",
-			"height":"100%"
+			"height":$('body').height()
 		});
 		$("#popBox").css({
 			"width":options.width
@@ -64,12 +63,14 @@
 		}
 		overlay.hide().fadeIn(function(){
 			//triggerEvent
-			overlay.on(clickEvent,function(){
-				wrap.fadeOut();
-				setTimeout(function(){
-						$.fn.pop.opt={};
-				},200);
-			});
+			if(options.tapDispear){
+				overlay.on(clickEvent,function(){
+					wrap.fadeOut();
+					setTimeout(function(){
+							$.fn.pop.opt={};
+					},200);
+				});
+			}
 			$("#cfmBtn").on(clickEvent,function(e){
 				e.stopPropagation();
 				wrap.fadeOut(function(){
