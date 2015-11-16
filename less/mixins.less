@@ -12,14 +12,20 @@
       *zoom: 1;
      }
         
-    // 2. Text Overflow ( 文本溢出处理 )
+    // 2. Text Overflow ( 文本溢出处理 ),多行文本溢出
     .text-overflow() {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         -o-text-overflow: ellipsis;
      }
-    
+    .text-overflow-line(@line){
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp:@line;
+        -webkit-box-orient: vertical;
+    }
     // 3. ie6/7 块状元素设置为 display: inline-block 的 hack
     .ie7-inline-block(){
         *display: inline;
@@ -57,7 +63,7 @@
     .square(@size) { // 等边矩形
       .size(@size, @size);
     }
-
+    
     
 /* Cross-Brower CSS3 style that support css3
 -----------------------------------------------*/
@@ -232,4 +238,20 @@
         box-sizing:content-box;
         -moz-box-sizing:content-box; 
         -webkit-box-sizing:content-box; 
+    }
+
+    // 11.改变placeholder的颜色
+    .placeholder-color(@color){
+      &::-webkit-input-placeholder{
+        color: @color;
+      }
+      &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+          color:@color;
+      }
+      &::-moz-placeholder { /* Mozilla Firefox 19+ */
+          color:@color;
+      }
+      &:-ms-input-placeholder { /* Internet Explorer 10+ */
+          color:@color;
+      }
     }
