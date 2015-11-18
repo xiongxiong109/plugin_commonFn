@@ -28,7 +28,7 @@ function Count(){
 Count.prototype.init=function(opt){
 	this.opt=this.extend(this.defaults,opt);
 	var btn=document.getElementById(this.opt.btn);
-	if(getItem(opt.countTag)){
+	if(getItem(this.opt.countTag)){
 		var curTime=new Date().getTime();
 		this.countTime(curTime);
 		btn.setAttribute('disabled','disabled');
@@ -44,18 +44,17 @@ Count.prototype.bindEvent=function(selector){
 	bind(obj,'click',function(){
 		if(typeof counter.opt.unlock=='function' && counter.opt.unlock()){
 			this.setAttribute('disabled','disabled');
-			counter.countTime();
+			counter.countTime(new Date().getTime());
 		}
 		else if(counter.opt.unlock==true){
 			this.setAttribute('disabled','disabled');
-			counter.countTime();
+			counter.countTime(new Date().getTime());
 		}
 	});
 }
 
 /*从当前计时开始计数*/
-Count.prototype.countTime=function(){
-	var startTime=new Date().getTime();
+Count.prototype.countTime=function(startTime){
 	var c=this;
 	var opt=this.opt,timer=null;
 	var oBtn=document.getElementById(opt.btn);
