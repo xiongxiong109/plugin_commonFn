@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出层插件测试</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/zepto.overlay.css">
+</head>
+<body>
+	<div id="overlay">
+		<div id="box">
+			<p></p>
+			<div id="confirm">确定</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/zepto.overlay.js"></script>
+	<script type="text/javascript">
+		$.showOverlay("hello",function(){
+			$.showOverlay('message');
+		});
+	</script>
+</body>
+</html>
