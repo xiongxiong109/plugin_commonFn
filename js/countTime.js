@@ -19,6 +19,7 @@ function Count(){
 	this.defaults={
 		btn:null,
 		time:30,
+		unlock:true,//锁存函数
 		countTag:'Count' //使用localStorage的标记
 	}	
 }
@@ -41,13 +42,20 @@ Count.prototype.bindEvent=function(selector){
 	var obj=null,counter=this;
 	obj=document.getElementById(selector);
 	bind(obj,'click',function(){
-		this.setAttribute('disabled','disabled');
-		counter.countTime(new Date().getTime());
+		if(typeof counter.opt.unlock=='function' && counter.opt.unlock()){
+			this.setAttribute('disabled','disabled');
+			counter.countTime();
+		}
+		else if(counter.opt.unlock==true){
+			this.setAttribute('disabled','disabled');
+			counter.countTime();
+		}
 	});
 }
 
 /*从当前计时开始计数*/
-Count.prototype.countTime=function(startTime){
+Count.prototype.countTime=function(){
+	var startTime=new Date().getTime();
 	var c=this;
 	var opt=this.opt,timer=null;
 	var oBtn=document.getElementById(opt.btn);
