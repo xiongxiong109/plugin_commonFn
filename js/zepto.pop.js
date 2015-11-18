@@ -1,6 +1,7 @@
 /*
 *自定义弹窗
 *调用方法示例:$("#foo").pop(options)
+@author:xiongjianqiao
 */
 ;(function($){
 
