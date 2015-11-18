@@ -24,6 +24,7 @@
 				'translateY':'-35%',
 			},300,'ease',function(){
 				$("#overlay").fadeOut(function(){
+					$("#overlay").hide();
 					cb && cb.call();
 				});
 			});
