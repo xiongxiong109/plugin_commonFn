@@ -11,7 +11,7 @@ function showOverlay(str,cb){
 		'opacity':0,
 		'transform':'translateY(-35%)',
 		'-webkit-transform':'translateY(-35%)',
-		'top':($(window).height()+$(window).scrollTop()-$("#box").height())/2
+		'top':$(window).height()*0.4+$(window).scrollTop()
 	});
 
 	//弹出框点击按钮
