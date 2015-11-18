@@ -1,0 +1,49 @@
+.wrap{
+	padding-top: 10%;
+}
+#form{
+	display: block;
+	width: 80%;
+	margin: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 0.4rem;
+	border: 1px solid #c00;
+	padding: 0.4rem 4%;
+}
+.form-control{
+	height: 2.5rem;
+	font-size: 1rem;
+	border:none;
+
+}
+input[name="tel"]{
+	width: 70%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	padding: 0 0.4rem;
+	border-right: none;
+	border-radius: 0.4rem 0 0 0.4rem;
+}
+input[name="code"]{
+	width: 30%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #FF952C;
+	font-size: 0.75rem;
+	border-left: none;
+	border-radius: 0 0.4rem 0.4rem 0;
+	color: #fff;
+	background-color:#FF952C;
+}
+input[name="code"]:active{
+	background-color:#FFAE5D;
+}
+input[name="code"]:disabled{
+	background-color: #ccc;
+	border-color: #ccc;
+}
