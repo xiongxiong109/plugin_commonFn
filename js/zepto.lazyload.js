@@ -1,5 +1,15 @@
 /*
 图片懒加载插件
+@effect:显示效果,目前是fadeIn和常规显示
+@offsetTop:top偏移量
+@使用方法:图片资源的src使用placeholder图片,真实的图片路径则放置在data-src里面
+@author:xiongjianqiao
+调用示例:
+$("img.lazy").lazyload({
+	effect:'fadeIn',
+	offsetTop:30
+});
+
 */
 ;(function($){
 	var defaults={
