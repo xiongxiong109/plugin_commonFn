@@ -6,6 +6,7 @@ seajs.config({
 		'ajaxPost':'plugins/zepto.ajaxPost',
 		'validator':'common/validator',
 		'countTime':'common/countTime',
+		'animationFrame':'common/requrestAnimationFrame',
 		'$overlay':'plugins/zepto.overlay',
 		'$lazyload':'plugins/zepto.lazyload',
 		'$pop':'plugins/zepto.pop'
