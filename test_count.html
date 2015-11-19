@@ -17,26 +17,13 @@
 			background-color: #ccc;
 		}
 	</style>
-	<script type="text/javascript" src="js/countTime.js"></script>
+	<script type="text/javascript" src="js/sea.js"></script>
+	<script type="text/javascript" src="js/sea.config.js"></script>
 </head>
 <body>
 	<input type="button" id="btn" value="获取验证码">
 	<script type="text/javascript">
-		var codeCount=new Count();
-		var options={
-			btn:"btn",
-			time:10,//10s倒计时
-			countTag:'codeCount', //存储标记
-			unlock:judge //传递阻塞函数,当函数判定为true的时候,执行点击事件,默认不阻塞,即点击后立刻倒计时
-		}
-		codeCount.init(options);
-
-		var p=10;
-		function judge(){
-				if(p<10)
-				return true;
-				return false;
-		}
+		seajs.use('test/test_count');
 	</script>
 </body>
 </html>

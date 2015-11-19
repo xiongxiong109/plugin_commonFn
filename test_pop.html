@@ -20,55 +20,11 @@
 </head>
 <body>
 	<input type="button" value="提交">
-	<script type="text/javascript" src="js/zepto.min.js"></script>
-	<script type="text/javascript" src="js/zepto.pop.js"></script>
-	<div id="pop"></div>
+	<script type="text/javascript" src="js/sea.js"></script>
+	<script type="text/javascript" src="js/sea.config.js"></script>
 	<script type="text/javascript">
-	var clickEvent="ontouchstart" in document.documentElement ? "tap" : "click";
-		$("input[type='button']").on(clickEvent,function(){
-
-			$("#pop").pop({
-				width:'60%',
-				msg:"短信已发送!",
-				cfmOnly:true,
-				cfmText:'确定',
-				effect:'bounceInLeft',
-				cfmCall:function(){
-					$("#pop").pop({
-						width:'80%',
-						msg:"试一试双按钮",
-						effect:'flipInY',
-						cfmOnly:false,
-						cfmText:'Ok',
-						cancelText:'cancel',
-						cancelCall:function(){
-							$("#pop").pop({
-								width:'70%',
-								msg:'点击了取消键!',
-								effect:'flipInX',
-								cfmOnly:true,
-								cfmText:'好滴',
-								cfmCall:function(){
-									console.log('y');
-								}
-							});
-						},
-						cfmCall:function(){
-							$("#pop").pop({
-								width:'60%',
-								msg:'点击了确认键!',
-								effect:'fadeInUp',
-								cfmOnly:true,
-								cfmText:'知道了',
-								cfmCall:function(){
-									console.log('x');
-								}
-							});
-						}
-					});
-				}
-			});
-		});
+		seajs.use('test/test_pop.js');
 	</script>
+	<div id="pop"></div>
 </body>
 </html>
