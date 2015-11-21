@@ -5,6 +5,7 @@ define(function(require,exports,module){
 	var Count=require('countTime');
 	//弹出层模块
 	require('$overlay');
+	require('css/zepto.overlay.css');
 	$(function(){
 		//新建验证参数
 		var validator=new FormValidator();
