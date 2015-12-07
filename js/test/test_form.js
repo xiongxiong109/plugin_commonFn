@@ -28,7 +28,8 @@ define(function(require,exports,module){
 			btn:'code',
 			time:30,
 			unlock:unlock,
-			countTag:'countCode'
+			countTag:'countCode',
+			refresh:false
 		}
 		count.init(options);
 		//获取表单dom

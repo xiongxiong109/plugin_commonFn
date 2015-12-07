@@ -21,7 +21,8 @@ define(function(require,exports,module){
 			btn:null,
 			time:30,
 			unlock:true,//锁存函数
-			countTag:'Count' //使用localStorage的标记
+			countTag:'Count', //使用localStorage的标记
+			refresh:true //刷新页面后是否仍然记录时间
 		}	
 	}
 
@@ -30,9 +31,14 @@ define(function(require,exports,module){
 		this.opt=this.extend(this.defaults,opt);
 		var btn=document.getElementById(this.opt.btn);
 		if(getItem(this.opt.countTag)){
-			var curTime=new Date().getTime();
-			this.countTime(curTime);
-			btn.setAttribute('disabled','disabled');
+			if(this.opt.refresh){//刷新仍然记录时间
+				var curTime=new Date().getTime();
+				this.countTime(curTime);
+				btn.setAttribute('disabled','disabled');
+			}
+			else{
+				removeItem(this.opt.countTag);
+			}
 		}
 		else{
 			this.bindEvent(this.opt.btn);
