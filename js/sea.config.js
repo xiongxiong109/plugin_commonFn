@@ -8,7 +8,7 @@ seajs.config({
 		'validator':'common/validator',
 		'countTime':'common/countTime',
 		'download':'common/download',
-		'animationFrame':'common/requrestAnimationFrame',
+		'animationFrame':'common/requestAnimationFrame',
 		'$overlay':'plugins/zepto.overlay',
 		'$lazyload':'plugins/zepto.lazyload',
 		'$pop':'plugins/zepto.pop'
