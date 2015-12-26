@@ -11,14 +11,22 @@
 }
 #box{
 	width: 80%;
+	max-width: 480px;
+	margin: auto;
 	background-color: #fff;
 	border-radius: 0.3rem;
 	position: absolute;
-	top: 30%;
-	left:10%;
+	top: 0%;
+	left:0%;
+	right:0%;
 	box-shadow: 0px 0px 20px #000;
 	text-align: center;
 	overflow: hidden;
+	-webkit-transform-origin: center 25%;
+	-moz-transform-origin: center 25%;
+	-ms-transform-origin: center 25%;
+	-o-transform-origin: center 25%;
+	transform-origin: center 25%;
 }
 #box p{
 	padding: 6% 4%;

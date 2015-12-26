@@ -11,31 +11,36 @@
 
 		$("#box").css({
 			'opacity':0,
-			'transform':'translateY(-35%)',
-			'-webkit-transform':'translateY(-35%)',
-			'top':$(window).height()*0.4+$(window).scrollTop()
+			'position':'fixed',
+			'transform':'scale(0) translateY(-50%)',
+			'-webkit-transform':'scale(0) translateY(-50%)',
+			'top':'50%'
 		});
 
-		//弹出框点击按钮
-		$("#confirm").one(clickEvent,function(){
+		$("#overlay").fadeIn(200,showBox);
 
-			$("#box").animate({
-				'opacity':0,
-				'translateY':'-35%',
-			},300,'ease',function(){
-				$("#overlay").fadeOut(function(){
-					$("#overlay").hide();
-					cb && cb.call();
+		function hideBox(){
+				$("#box").animate({
+					'opacity':0,
+					'scale':0,
+					'translateY':'-50%'
+				},200,'ease-in',function(){
+					$("#overlay").fadeOut(function(){
+						$("#overlay").hide();
+						cb && cb.call();
+					});
 				});
-			});
+		}
 
-		});
-
-		$("#overlay").fadeIn(200,function(){
+		function showBox(){
 			$("#box").animate({
 				'opacity':1,
-				'translateY':'0'
-			},300,'ease');
-		});
+				'scale':1,
+				'translateY':'-50%'
+			},300,'ease',function(){
+				//弹出框点击按钮
+				$("#confirm").one(clickEvent,hideBox);
+			});
+		}
 	}
 })(Zepto);
