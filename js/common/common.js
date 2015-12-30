@@ -19,7 +19,8 @@ codeCount.init(options);
 			btn:null,
 			time:30,
 			unlock:true,//锁存函数
-			countTag:'Count' //使用localStorage的标记
+			countTag:'Count', //使用localStorage的标记
+			refresh:true
 		}	
 	}
 
@@ -28,9 +29,14 @@ codeCount.init(options);
 		this.opt=this.extend(this.defaults,opt);
 		var btn=document.getElementById(this.opt.btn);
 		if(getItem(this.opt.countTag)){
-			var curTime=new Date().getTime();
-			this.countTime(curTime);
-			btn.setAttribute('disabled','disabled');
+			if(this.opt.refresh){//刷新仍然记录时间
+				var curTime=new Date().getTime();
+				this.countTime(curTime);
+				btn.setAttribute('disabled','disabled');
+			}
+			else{
+				removeItem(this.opt.countTag);
+			}
 		}
 		else{
 			this.bindEvent(this.opt.btn);
@@ -40,16 +46,19 @@ codeCount.init(options);
 	Count.prototype.bindEvent=function(selector){
 		var obj=null,counter=this;
 		obj=document.getElementById(selector);
-		bind(obj,'click',function(){
+		bind(obj,'click',lockBtn);
+		function lockBtn(){
 			if(typeof counter.opt.unlock=='function' && counter.opt.unlock()){
 				this.setAttribute('disabled','disabled');
 				counter.countTime(new Date().getTime());
+				unbind(obj,'click',lockBtn);
 			}
 			else if(counter.opt.unlock==true){
 				this.setAttribute('disabled','disabled');
 				counter.countTime(new Date().getTime());
+				unbind(obj,'click',lockBtn);
 			}
-		});
+		}
 	}
 
 	/*从当前计时开始计数*/
@@ -146,7 +155,15 @@ codeCount.init(options);
 			});
 		}
 	}
-
+	//取消事件绑定
+	function unbind(obj,ev,fn){
+		if(obj.removeEventListener){
+			obj.removeEventListener(ev,fn);
+		}
+		else{
+			obj.detachEvent('on'+ev,fn);
+		}
+	}
 // ========================================
 	// 表单验证插件
 	function FormValidator(options){

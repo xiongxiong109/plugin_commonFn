@@ -48,16 +48,19 @@ define(function(require,exports,module){
 	Count.prototype.bindEvent=function(selector){
 		var obj=null,counter=this;
 		obj=document.getElementById(selector);
-		bind(obj,'click',function(){
+		bind(obj,'click',lockBtn);
+		function lockBtn(){
 			if(typeof counter.opt.unlock=='function' && counter.opt.unlock()){
 				this.setAttribute('disabled','disabled');
 				counter.countTime(new Date().getTime());
+				unbind(obj,'click',lockBtn);
 			}
 			else if(counter.opt.unlock==true){
 				this.setAttribute('disabled','disabled');
 				counter.countTime(new Date().getTime());
+				unbind(obj,'click',lockBtn);
 			}
-		});
+		}
 	}
 
 	/*从当前计时开始计数*/
@@ -87,7 +90,11 @@ define(function(require,exports,module){
 			}
 		}
 	}
-
+	/*清除计时信息*/
+	Count.prototype.clear=function(){
+		var opt=this.opt;
+		removeItem(opt.countTag);
+	}
 	/*扩展对象方法*/
 	Count.prototype.extend=function(obj1,obj2){
 		for(var i in obj2){
@@ -144,12 +151,18 @@ define(function(require,exports,module){
 			obj.addEventListener(ev,fn,false);
 		}
 		else{
-			obj.attachEvent('on'+ev,function(){
-				fn && fn.call(obj);
-			});
+			obj.attachEvent('on'+ev,fn);
 		}
 	}
-
+	//取消事件绑定
+	function unbind(obj,ev,fn){
+		if(obj.removeEventListener){
+			obj.removeEventListener(ev,fn);
+		}
+		else{
+			obj.detachEvent('on'+ev,fn);
+		}
+	}
 	module.exports=Count;
 	
 });
