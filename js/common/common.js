@@ -32,7 +32,6 @@ codeCount.init(options);
 			if(this.opt.refresh){//刷新仍然记录时间
 				var curTime=new Date().getTime();
 				this.countTime(curTime);
-				btn.setAttribute('disabled','disabled');
 			}
 			else{
 				removeItem(this.opt.countTag);
@@ -47,17 +46,20 @@ codeCount.init(options);
 		var obj=null,counter=this;
 		obj=document.getElementById(selector);
 		bind(obj,'click',lockBtn);
+		// 锁住按钮
 		function lockBtn(){
-			if(typeof counter.opt.unlock=='function' && counter.opt.unlock()){
-				this.setAttribute('disabled','disabled');
-				counter.countTime(new Date().getTime());
-				unbind(obj,'click',lockBtn);
+			if( (typeof counter.opt.unlock=='function' && counter.opt.unlock())
+			 		||
+			 		(counter.opt.unlock==true)
+			 	){
+				disableBtn.call(obj);
 			}
-			else if(counter.opt.unlock==true){
-				this.setAttribute('disabled','disabled');
-				counter.countTime(new Date().getTime());
-				unbind(obj,'click',lockBtn);
-			}
+		}
+		//禁用按钮
+		function disableBtn(obj){
+			this.setAttribute('disabled','disabled');
+			counter.countTime(new Date().getTime());
+			unbind(this,'click',lockBtn);
 		}
 	}
 
@@ -70,22 +72,33 @@ codeCount.init(options);
 			setItem(opt.countTag,startTime,opt.time);
 		}
 		var start=getItem(opt.countTag);
-
+		var cur=new Date().getTime();
+		var disTime=opt.time-Math.floor((cur-start)/1000);
 		count();
-		timer=setInterval(count,1e3);
+		if(disTime<=0){
+			unlockBtn();
+		}
+		else{
+			oBtn.setAttribute('disabled','disabled');
+			timer=setInterval(count,1e3);
+		}
 		/*计时子函数*/
 		function count(){
 			var cur=new Date().getTime();
 			var disTime=opt.time-Math.floor((cur-start)/1000);
 			oBtn.value=disTime+"s再获取";
 			if(disTime<=0){
-				disTime=0;
-				clearInterval(timer);
-				removeItem(opt.countTag);
-				oBtn.removeAttribute('disabled');
-				oBtn.value="获取验证码";
+				unlockBtn();
 				c.bindEvent(opt.btn);
 			}
+		}
+		/*解锁按钮函数*/
+		function unlockBtn(){
+			disTime=0;
+			clearInterval(timer);
+			removeItem(opt.countTag);
+			oBtn.removeAttribute('disabled');
+			oBtn.value="获取验证码";
 		}
 	}
 	

@@ -42,7 +42,7 @@
 		var count=new Count();
 		var options={
 			btn:'code',
-			time:20,
+			time:3,
 			unlock:unlock,
 			countTag:'countCode'
 			// refresh:false
@@ -64,7 +64,8 @@
 		function unlock(){
 			var rst=validator.valid(oTel.val(),'regTel');
 			if(typeof rst=='boolean'){
-				$.showOverlay('短信已发送');
+				$.showOverlay('短信已发送,您的手机号为:'+oTel.val());
+				console.log(oTel.val());
 				return true;
 			}
 			return false;
