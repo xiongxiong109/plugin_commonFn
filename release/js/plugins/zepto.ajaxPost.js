@@ -1,0 +1,1 @@
+function sendAjax(a,e,t,n){$.ajax({type:"POST",url:a,data:e,dataType:"json",headers:{"X-CSRF-TOKEN":$('meta[name="_token"]').attr("content")},success:t,error:n})}

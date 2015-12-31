@@ -1,0 +1,1 @@
+define(function(e){var i=e("flexResize"),n=new i;n.init()});

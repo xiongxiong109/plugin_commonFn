@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>验证码倒计时插件</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		#btn{
+			border:1px solid #ccc;
+			width: 150px;
+			height: 30px;
+			font-size: 14px;
+			color: #fff;
+			background-color: #00c;
+		}
+		#btn[disabled=disabled]{
+			background-color: #ccc;
+		}
+	</style>
+	<script type="text/javascript" src="/js/sea.js"></script>
+	<script type="text/javascript" src="/js/sea.config.js"></script>
+</head>
+<body>
+	<input type="button" id="btn" value="获取验证码">
+	<script type="text/javascript">
+		seajs.use('test/test_count');
+	</script>
+</body>
+</html>
