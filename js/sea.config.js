@@ -5,10 +5,10 @@ seajs.config({
 	alias:{
 		'zepto':'zepto/zepto.min',
 		'ajaxPost':'plugins/zepto.ajaxPost',
-		'validator':'common/validator',
+		'browser':'common/browser',
 		'countTime':'common/countTime',
-		'download':'common/download',
 		'flexResize':'common/flexResize',
+		'validator':'common/validator',
 		'animationFrame':'common/requestAnimationFrame',
 		'$overlay':'plugins/zepto.overlay',
 		'$lazyload':'plugins/zepto.lazyload',
