@@ -1,1 +1,0 @@
-define(function(o){var d=o("download")();d.mobile&&console.log(d.ios?d.weChat?"ios 微信客户端":"ios 浏览器客户端":d.android?d.weChat?"android 微信客户端":"android 浏览器客户端":d.weChat?"其他微信客户端":"其他移动端")});

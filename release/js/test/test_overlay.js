@@ -1,1 +1,0 @@
-define(function(e){e("$overlay"),$.showOverlay("hello",function(){$.showOverlay("message")})});

@@ -2,7 +2,7 @@
 处理下载链接函数
 主要根据微信、非微信浏览器；安卓、苹果机型进行浏览器检测
 */
-define(function(require,exports,module){
+define('browser',function(require,exports,module){
 	var bw=navigator.userAgent;
 	function TestBrower(){
 		return {

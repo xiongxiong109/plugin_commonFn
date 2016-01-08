@@ -1,1 +1,0 @@
-define(function(n){function t(){return 10>u?!0:!1}var e=n("countTime"),i=new e,o={btn:"btn",time:10,countTag:"codeCount",unlock:t};i.init(o);var u=10});
