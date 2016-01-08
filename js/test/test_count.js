@@ -1,4 +1,4 @@
-define(function(require,module,exports){
+define(function(require,exports,module){
 	var Count=require('countTime');
 	var codeCount=new Count();
 	var options={
@@ -9,7 +9,7 @@ define(function(require,module,exports){
 	}
 	codeCount.init(options);
 
-	var p=10;
+	var p=9;
 	function judge(){
 			if(p<10)
 			return true;

@@ -1,4 +1,4 @@
-define(function(require,exports,module){
+define('validator',function(require,exports,module){
 	// 表单验证插件
 	function FormValidator(options){
 		this.items=[];

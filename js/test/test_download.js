@@ -1,5 +1,5 @@
 define(function(require){
-	var info=require('download')();
+	var info=require('brower')();
 	if(info.mobile){//移动端
 		if(info.ios){//ios
 			if(info.weChat){//ios weiChat

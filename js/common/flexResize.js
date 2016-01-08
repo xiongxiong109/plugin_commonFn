@@ -1,7 +1,7 @@
 /**
 *窗口自适应函数
 */
-define(function(require,exports,module){
+define('flexResize',function(require,exports,module){
 	function FlexResize(opt){
 		this.defaults={
 			baseWidth:640,//基准屏幕宽640px

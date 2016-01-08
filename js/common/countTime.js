@@ -14,7 +14,7 @@ var options={
 }
 codeCount.init(options);
 */
-define(function(require,exports,module){
+define('countTime',function(require,exports,module){
 
 	function Count(){
 		this.defaults={
@@ -164,5 +164,4 @@ define(function(require,exports,module){
 		}
 	}
 	module.exports=Count;
-	
 });
