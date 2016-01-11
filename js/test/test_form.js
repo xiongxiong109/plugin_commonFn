@@ -26,10 +26,10 @@ define(function(require,exports,module){
 		var count=new Count();
 		var options={
 			btn:'code',
-			time:30,
+			time:5,
 			unlock:unlock,
-			countTag:'countCode',
-			refresh:false
+			countTag:'countCode'
+			// refresh:false
 		}
 		count.init(options);
 		//获取表单dom
@@ -49,6 +49,7 @@ define(function(require,exports,module){
 		function unlock(){
 			var rst=validator.valid(oForm.tel.value,'regTel');
 			if(typeof rst=='boolean'){
+				console.log('x');
 				return true;
 			}
 			return false;
