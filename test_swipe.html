@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>swipe触摸滑屏轮播图测试</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/test_swipe.css">
+</head>
+<body>
+	<div id="swipe" class="nav-swipe">
+		<div class="swipe-wrap">
+			<div>
+				<a href="javascript:void(0);">
+					<img src="./img/large_img_default.gif" data-src="./img/320x200a.jpg">
+				</a>
+			</div>
+			<div>
+				<a href="javascript:void(0);">
+					<img src="./img/large_img_default.gif" data-src="./img/320x200b.jpg">
+				</a>
+			</div>
+			<div>
+				<a href="javascript:void(0);">
+					<img src="./img/large_img_default.gif" data-src="./img/320x200c.jpg">
+				</a>
+			</div>
+			<div>
+				<a href="javascript:void(0);">
+					<img src="./img/large_img_default.gif" data-src="./img/320x200d.jpg">
+				</a>
+			</div>
+		</div>
+		<ul class="swipe-nav-list"></ul>
+	</div>
+	<script type="text/javascript" src="js/sea.js"></script>
+	<script type="text/javascript" src="js/sea.config.js"></script>
+	<script type="text/javascript">
+		seajs.use('test/test_swipe');
+	</script>
+</body>
+</html>
