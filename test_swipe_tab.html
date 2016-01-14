@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta content="email=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="css/reset_with_js.css">
+	<link rel="stylesheet" type="text/css" href="css/test_tab.css">
+	<title>swipe选项卡</title>
+</head>
+<body>
+	<div class="wrap">
+		<header class="cl">
+			<a href="javascript:void(0);" class="fl">返回</a>
+			<h1 class="fl ellipsis">tab选项卡</h1>
+			<a href="javascript:void(0);" class="fr">menu</a>
+		</header>
+		<nav>
+			<ul class="list cl">
+				<li class="fl"><a href="javascript:void(0);">列表1</a></li>
+				<li class="fl"><a href="javascript:void(0);">列表2</a></li>
+				<li class="fl"><a href="javascript:void(0);">列表3</a></li>
+			</ul>
+			<div class="slide-bar"></div>
+		</nav>
+		<!-- swipe -->
+		<div class="swipe" id="swipe">
+			<div class="swipe-wrap">
+				<div class="tab t1">
+					<div class="panel">
+						123456
+					</div>
+				</div>
+				<div class="tab t2">
+					<div class="panel">
+						654987
+					</div>
+				</div>
+				<div class="tab t3">
+					<div class="panel">
+						safdsdfsdf
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- swipe end -->
+	</div>
+	<script type="text/javascript" src="js/sea.js"></script>
+	<script type="text/javascript" src="js/sea.config.js"></script>
+	<script type="text/javascript">
+		seajs.use(['test/test_tab']);
+	</script>
+</body>
+</html>
