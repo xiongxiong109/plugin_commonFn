@@ -9,6 +9,7 @@ seajs.config({
 		'countTime':'common/countTime',
 		'flexResize':'common/flexResize',
 		'validator':'common/validator',
+		'scrollLoad':'common/scrollLoad',
 		'swipe':'common/swipe.min',
 		'animationFrame':'common/requestAnimationFrame',
 		'$overlay':'plugins/zepto.overlay',
