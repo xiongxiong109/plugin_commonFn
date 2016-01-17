@@ -1,5 +1,5 @@
 /**
-Zepto无缝滚动消息插件
+Zepto无缝滚动消息插件(基于css3 translate3d实现)
 @author:xiongjianqiao,
 注意,因为seemless为true时会在oUl后面append一个clone节点,所以当重复调用的时候有可能会生成多个节点
 另外如果要重复调用这个函数,那么为了清除定时器，需要把定时器变量绑定到全局变量(比如$)中
