@@ -1,0 +1,9 @@
+.scroll-info-wrap{
+	height: 1.6rem;
+	overflow: hidden;
+}
+.scroll-info-list li{
+	height: 1.6rem;
+	line-height: 1.6rem;
+	text-align: center;
+}

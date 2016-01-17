@@ -14,7 +14,8 @@ seajs.config({
 		'animationFrame':'common/requestAnimationFrame',
 		'$overlay':'plugins/zepto.overlay',
 		'$lazyload':'plugins/zepto.lazyload',
-		'$pop':'plugins/zepto.pop'
+		'$pop':'plugins/zepto.pop',
+		'$scrollInfo':'plugins/zepto.scrollInfo'
 	},
 
 	//路径配置
