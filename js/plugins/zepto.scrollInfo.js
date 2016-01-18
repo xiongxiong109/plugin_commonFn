@@ -22,7 +22,6 @@ $("#scrollInfo").scrollInfo({
 			delay:1000, //滚动延迟时间
 			ease:'ease-in-out', //滚动ease函数
 			cb:function(){}, //滚动回调函数
-			auto:true, //是否自动滚动
 			seemless:true //是否无缝滚动
 		}
 		opt=$.extend(defaults,opt || {});
