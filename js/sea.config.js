@@ -16,7 +16,7 @@ seajs.config({
 		'$lazyload':'plugins/zepto.lazyload',
 		'$pop':'plugins/zepto.pop',
 		'$scrollInfo':'plugins/zepto.scrollInfo',
-		'iscroll':'iscroll/iscroll-lite'
+		'iscroll':'iscroll/iscroll'
 	},
 
 	//路径配置
