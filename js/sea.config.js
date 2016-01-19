@@ -16,6 +16,7 @@ seajs.config({
 		'$lazyload':'plugins/zepto.lazyload',
 		'$pop':'plugins/zepto.pop',
 		'$scrollInfo':'plugins/zepto.scrollInfo',
+		'$datepicker':'plugins/zepto.datepicker',
 		'iscroll':'iscroll/iscroll'
 	},
 
