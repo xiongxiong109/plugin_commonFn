@@ -5,7 +5,7 @@
 **/
 ;(function($){
 	$.showOverlay=function(str,cb){
-		var clickEvent="ontouchevent" in document.documentElement ? "tap" : "click";
+		var clickEvent="ontouchstart" in document.documentElement ? "tap" : "click";
 		str=str || '';
 		$("#box").find('p').text(str.toString());
 
